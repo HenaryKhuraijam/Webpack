@@ -1,10 +1,18 @@
-function component() {
-  const element = document.createElement('div');
+import _ from 'lodash';
+import printMe from './print.js';
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+ function component() {
+   const element = document.createElement('div');
+  const btn = document.createElement('button');
 
-  return element;
-}
+   element.innerHTML = _.join(['Hello', 'webpack'], ' ');
 
-document.body.appendChild(component());
+  btn.innerHTML = 'Click me and check the console!';
+  btn.onclick = printMe;
+
+  element.appendChild(btn);
+
+   return element;
+ }
+
+ document.body.appendChild(component());
